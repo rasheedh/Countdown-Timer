@@ -22,10 +22,10 @@ prn2.style.fontSize="200px"
 second+=1;
 prn1.innerHTML=minute;
 prn2.innerHTML=second;
-if (second==60){
+if (second>=60){
 minute+=1;
 second=0}
-if(minute==60){minute=0}
+if(minute>=60){minute=0}
 }
 function stop(){}
 </script>
