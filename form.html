@@ -1,0 +1,37 @@
+<html>
+<head>
+<title>Timer</title>
+</head>
+<script type="text/javascript">
+var t=0;m=0;
+var loc = location.href;
+var a = loc.split("&");
+var b = a[1].split("=");
+minute = parseInt(b[1]);
+var c = a[2].split("=");
+second = parseInt(c[1]);
+function start(){
+tick = setInterval(s,1000)
+}
+function stop(){tick=clearInterval(tick)}
+function s(){
+var prn1 = document.getElementById("par1"); 
+var prn2 = document.getElementById("par2");
+prn1.style.fontSize="200px"
+prn2.style.fontSize="200px"
+second+=1;
+prn1.innerHTML=minute;
+prn2.innerHTML=second;
+if (second==60){
+minute+=1;
+second=0}
+if(minute==60){minute=0}
+}
+function stop(){}
+</script>
+<body>
+<button name="button1" onclick="start()">Start</button>
+<button name="button2" onclick=clearInterval(tick)>Stop</button>
+</body>
+<p><font color="red" size="1500">Time: </font><font color="blue" size="1000" id="par1">min</font><font color="green"  size="2500">:</font><font color="blue" size="1000" id="par2">sec</font></p>
+</html>
