@@ -19,13 +19,15 @@ var prn1 = document.getElementById("par1");
 var prn2 = document.getElementById("par2");
 prn1.style.fontSize="200px"
 prn2.style.fontSize="200px"
-second+=1;
+second-=1;
 prn1.innerHTML=minute;
 prn2.innerHTML=second;
-if (second>=60){
-minute+=1;
-second=0}
-if(minute>=60){minute=0}
+if (second<=0){
+minute-=1;
+second=60}
+else if(second > 60){second = 60;}
+if(minute<0){clearInterval(tick)}
+else if(minute > 60){minute=60;}
 }
 function stop(){}
 </script>
@@ -33,5 +35,5 @@ function stop(){}
 <button name="button1" onclick="start()">Start</button>
 <button name="button2" onclick=clearInterval(tick)>Stop</button>
 </body>
-<p><font color="red" size="1500">Time: </font><font color="blue" size="1000" id="par1">min</font><font color="green"  size="2500">:</font><font color="blue" size="1000" id="par2">sec</font></p>
+<p><font color="red" size="1500">Time: </font><font color="blue" size="1000" id="par1">min</font><font color="green"  size="200">:</font><font color="blue" size="1000" id="par2">sec</font></p>
 </html>
